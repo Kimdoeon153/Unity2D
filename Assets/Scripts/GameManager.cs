@@ -51,10 +51,6 @@ public class GameManager : MonoBehaviour
             //Result UI
             Debug.Log("ав╬З╫ю╢о╢ы!");
             //Retry Button UI 
-
-
-
-
         }
 
     }
@@ -67,7 +63,6 @@ public class GameManager : MonoBehaviour
             
                 PlayerReposition();
             
-
             //Health Down
             HealthDown();
         }
