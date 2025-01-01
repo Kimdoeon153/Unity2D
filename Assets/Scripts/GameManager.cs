@@ -1,4 +1,4 @@
-using TMPro;  // TextMeshPro »ç¿ëÀ» À§ÇÑ ³×ÀÓ½ºÆäÀÌ½º Ãß°¡
+using TMPro;  // TextMeshPro ì‚¬ìš©ì„ ìœ„í•œ ë„¤ì„ìŠ¤í˜ì´ìŠ¤ ì¶”ê°€
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     public PlayerMove player;
     public GameObject[] Stages;
 
-    // TextMeshProUGUI·Î º¯°æ (TextMeshPro ÅØ½ºÆ® ÄÄÆ÷³ÍÆ® »ç¿ë)
-    public TextMeshProUGUI gameOverText;  // TextMeshPro ÅØ½ºÆ® ÇÊµå·Î º¯°æ
+    // TextMeshProUGUIë¡œ ë³€ê²½ (TextMeshPro í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ ì‚¬ìš©)
+    public TextMeshProUGUI gameOverText;  // TextMeshPro í…ìŠ¤íŠ¸ í•„ë“œë¡œ ë³€ê²½
 
-    public GameObject gameOverPanel;  // Game Over È­¸é
+    public GameObject gameOverPanel;  // Game Over í™”ë©´
 
     void Start()
     {
-        // ÃÊ±âÈ­: Game Over È­¸é ¼û±â±â
+        // ì´ˆê¸°í™”: Game Over í™”ë©´ ìˆ¨ê¸°ê¸°
         gameOverPanel.SetActive(false);
         gameOverText.gameObject.SetActive(false);
     }
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
             // Player Control Lock
             Time.timeScale = 0;
             // Result UI
-            Debug.Log("°ÔÀÓ Å¬¸®¾î!");
-            // Restart Button UI (Ãß°¡ÀûÀ¸·Î ±¸Çö ÇÊ¿ä)
+            Debug.Log("ê²Œì„ í´ë¦¬ì–´!");
+            // Restart Button UI (ì¶”ê°€ì ìœ¼ë¡œ êµ¬í˜„ í•„ìš”)
         }
 
         // Calculate Point
@@ -56,8 +56,9 @@ public class GameManager : MonoBehaviour
             player.OnDie();
 
             // Result UI
-            Debug.Log("Á×¾ú½À´Ï´Ù!");
-            TriggerGameOver();  // Game Over È­¸é Ç¥½Ã ÇÔ¼ö È£Ãâ
+            Debug.Log("ì£½ì—ˆìŠµë‹ˆë‹¤!");
+
+            TriggerGameOver();  // Game Over í™”ë©´ í‘œì‹œ í•¨ìˆ˜ í˜¸ì¶œ
         }
     }
 
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
             if (health > 1)
             {
                 PlayerReposition();
+
                 HealthDown();
             }
             else
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
         else if (collision.CompareTag("Finish"))
         {
             Debug.Log("Player reached Finish - Proceeding to the Next Stage");
-            NextStage(); // NextStage È£Ãâ
+            NextStage(); // NextStage í˜¸ì¶œ
         }
     }
 
@@ -91,10 +93,10 @@ public class GameManager : MonoBehaviour
         player.VelocityZero();
     }
 
-    // Game Over È­¸é È°¼ºÈ­ ÇÔ¼ö
+    // Game Over í™”ë©´ í™œì„±í™” í•¨ìˆ˜
     void TriggerGameOver()
     {
-        gameOverPanel.SetActive(true);  // Game Over Panel È°¼ºÈ­
-        gameOverText.gameObject.SetActive(true);  // "Game Over" ÅØ½ºÆ® È°¼ºÈ­
+        gameOverPanel.SetActive(true);  // Game Over Panel í™œì„±í™”
+        gameOverText.gameObject.SetActive(true);  // "Game Over" í…ìŠ¤íŠ¸ í™œì„±í™”
     }
 }
