@@ -8,6 +8,9 @@ TagManager:
   - Item
   - Platform
   - Spike
+  - MovingPlatform
+  - Trampoline
+  - FallingPlatform
   layers:
   - Default
   - TransparentFX
